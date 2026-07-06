@@ -2,7 +2,7 @@ import {CONFIG} from "./config.js";
 
 export function createImageData(img){
 
-    const canvas=document.getElementById("canvas");
+const canvas=document.getElementById("sourceCanvas");
 
     canvas.width=CONFIG.outputWidth;
 
