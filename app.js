@@ -10,7 +10,7 @@ import {createImageData} from "./js/imageLoader.js";
 
 import {debugPixels} from "./js/utils.js";
 
-outputWidth:100
+outputWidth:200
 
 async function main(){
 
