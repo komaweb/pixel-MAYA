@@ -1,7 +1,7 @@
 export function drawCharacter(ctx, x, y, size, hat, face){
 
     // 背景色（仮）
-    ctx.fillStyle = "#ff9999";
+    ctx.fillStyle = color;
     ctx.fillRect(x, y, size, size);
 
     // 被り物
