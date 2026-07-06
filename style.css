@@ -14,11 +14,14 @@ padding:30px;
 
 }
 
-canvas{
+#resultCanvas{
 
 width:100%;
+
 border:1px solid #ccc;
+
 margin-top:20px;
+
 image-rendering:pixelated;
 
 }
