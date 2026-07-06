@@ -10,6 +10,8 @@ import {createImageData} from "./js/imageLoader.js";
 
 import {debugPixels} from "./js/utils.js";
 
+outputWidth:100
+
 async function main(){
 
     // マヤ素材を全部読み込む
@@ -28,12 +30,7 @@ async function main(){
 
     const data = result.imageData.data;
 
-// 左上の1ピクセル
-const r = data[0];
-const g = data[1];
-const b = data[2];
-
-const pixelColor = `rgb(${r}, ${g}, ${b})`;
+const data = result.imageData.data;
 
     const canvas = document.getElementById("resultCanvas");
 
@@ -44,9 +41,17 @@ const pixelColor = `rgb(${r}, ${g}, ${b})`;
 
 const size = 32;
 
-for(let y = 0; y < 10; y++){
+for(let y = 0; y < CONFIG.outputHeight; y++)
 
-    for(let x = 0; x < 10; x++){
+    for(let x = 0; x < CONFIG.outputWidth; x++)
+
+const index = (y * 10 + x) * 4;
+
+const r = data[index];
+const g = data[index + 1];
+const b = data[index + 2];
+
+const color = `rgb(${r}, ${g}, ${b})`;
 
 drawCharacter(
 
@@ -58,7 +63,7 @@ drawCharacter(
 
     size,
 
-    pixelColor,
+    color,
 
     getHat(x),
 
