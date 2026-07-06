@@ -41,7 +41,7 @@ async function main() {
     // 表示用Canvas
     const canvas = document.getElementById("resultCanvas");
 
-    const size = 64;
+    const size = 80;
 
     canvas.width = CONFIG.outputWidth * size;
     canvas.height = CONFIG.outputHeight * size;
