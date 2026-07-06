@@ -1,20 +1,22 @@
-import {getHat, getExpression} from "./js/spriteLoader.js";
+import { CONFIG } from "./js/config.js";
 
-import {drawCharacter} from "./js/renderer.js";
+import {
+    loadSprites,
+    getHat,
+    getExpression
+} from "./js/spriteLoader.js";
 
-import {loadSprites} from "./js/spriteLoader.js";
+import { drawCharacter } from "./js/renderer.js";
 
-import {waitImage} from "./js/upload.js";
+import { waitImage } from "./js/upload.js";
 
-import {createImageData} from "./js/imageLoader.js";
+import { createImageData } from "./js/imageLoader.js";
 
-import {debugPixels} from "./js/utils.js";
-
-outputWidth:200
+import { debugPixels } from "./js/utils.js";
 
 async function main(){
 
-    // マヤ素材を全部読み込む
+    // マヤ素材を読み込む
     await loadSprites();
 
     console.log("素材読み込み完了");
@@ -22,57 +24,57 @@ async function main(){
     // 画像を選ぶ
     const image = await waitImage();
 
-    // 100×100へ縮小
+    // 画像を縮小してRGB取得
     const result = createImageData(image);
 
-    // HSV判定
     debugPixels(result.imageData);
 
     const data = result.imageData.data;
 
-const data = result.imageData.data;
-
+    // 表示用Canvas
     const canvas = document.getElementById("resultCanvas");
 
-    canvas.width = 320;
-    canvas.height = 320;
+    const size = 32;
+
+    canvas.width = CONFIG.outputWidth * size;
+    canvas.height = CONFIG.outputHeight * size;
 
     const ctx = canvas.getContext("2d");
 
-const size = 32;
+    for(let y = 0; y < CONFIG.outputHeight; y++){
 
-for(let y = 0; y < CONFIG.outputHeight; y++)
+        for(let x = 0; x < CONFIG.outputWidth; x++){
 
-    for(let x = 0; x < CONFIG.outputWidth; x++)
+            const index = (y * CONFIG.outputWidth + x) * 4;
 
-const index = (y * 10 + x) * 4;
+            const r = data[index];
+            const g = data[index + 1];
+            const b = data[index + 2];
 
-const r = data[index];
-const g = data[index + 1];
-const b = data[index + 2];
+            const color = `rgb(${r}, ${g}, ${b})`;
 
-const color = `rgb(${r}, ${g}, ${b})`;
+            drawCharacter(
 
-drawCharacter(
+                ctx,
 
-    ctx,
+                x * size,
 
-    x * size,
+                y * size,
 
-    y * size,
+                size,
 
-    size,
+                color,
 
-    color,
+                // 今はデバッグ用
+                getHat(x % 10),
 
-    getHat(x),
+                getExpression(y % 10)
 
-    getExpression(y)
+            );
 
-);
+        }
+
     }
-
-}
 
 }
 
