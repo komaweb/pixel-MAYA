@@ -1,3 +1,5 @@
+import {loadSprites} from "./js/spriteLoader.js";
+
 import {waitImage} from "./js/upload.js";
 
 import {createImageData} from "./js/imageLoader.js";
