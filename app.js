@@ -21,17 +21,17 @@ import {
     getExpressionIndex
 } from "./js/converter.js";
 
-async function main(){
+async function main() {
 
     // マヤ素材を読み込む
     await loadSprites();
 
     console.log("素材読み込み完了");
 
-    // 画像を選ぶ
+    // 画像を選択
     const image = await waitImage();
 
-    // 画像を縮小してRGB取得
+    // 縮小してRGB取得
     const result = createImageData(image);
 
     debugPixels(result.imageData);
@@ -48,9 +48,9 @@ async function main(){
 
     const ctx = canvas.getContext("2d");
 
-    for(let y = 0; y < CONFIG.outputHeight; y++){
+    for (let y = 0; y < CONFIG.outputHeight; y++) {
 
-        for(let x = 0; x < CONFIG.outputWidth; x++){
+        for (let x = 0; x < CONFIG.outputWidth; x++) {
 
             const index = (y * CONFIG.outputWidth + x) * 4;
 
@@ -62,36 +62,32 @@ async function main(){
 
             const hsv = rgbToHsv(r, g, b);
 
-const hatIndex = getHatIndex(hsv.h);
+            const hatIndex = getHatIndex(hsv.h);
 
-            if (!getHat(hatIndex)) {
-    console.error("帽子がありません", hatIndex);
-}
+            const expressionIndex = getExpressionIndex(hsv.v);
 
-if (!getExpression(expressionIndex)) {
-    console.error("表情がありません", expressionIndex);
-}
+            const hat = getHat(hatIndex);
+            const face = getExpression(expressionIndex);
 
-const expressionIndex = getExpressionIndex(hsv.v);
+            if (!hat || !face) {
+                console.error(
+                    "画像取得失敗",
+                    {
+                        hatIndex,
+                        expressionIndex
+                    }
+                );
+                continue;
+            }
 
             drawCharacter(
-
                 ctx,
-
                 x * size,
-
                 y * size,
-
                 size,
-
                 color,
-
-const hsv = rgbToHsv(r, g, b);
-
-const hatIndex = getHatIndex(hsv.h);
-
-const expressionIndex = getExpressionIndex(hsv.v);
-
+                hat,
+                face
             );
 
         }
