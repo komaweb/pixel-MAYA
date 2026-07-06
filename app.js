@@ -2,15 +2,15 @@ import {waitImage} from "./js/upload.js";
 
 import {createImageData} from "./js/imageLoader.js";
 
-import {logPixels} from "./js/utils.js";
+import {debugPixels} from "./js/utils.js";
 
 async function main(){
 
-    const image=await waitImage();
+    const image = await waitImage();
 
-    const result=createImageData(image);
+    const result = createImageData(image);
 
-    logPixels(result.imageData);
+    debugPixels(result.imageData);
 
 }
 
