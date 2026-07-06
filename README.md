@@ -1,2 +1,1 @@
 # pixel-MAYA
-A
