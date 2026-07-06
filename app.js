@@ -51,7 +51,7 @@ for(let y = 0; y < 3; y++){
 
             getHat(x),
 
-            getExpression(0)
+            getExpression(y)
 
         );
 
