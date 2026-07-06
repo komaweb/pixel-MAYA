@@ -28,16 +28,16 @@ async function main(){
 
     const canvas = document.getElementById("resultCanvas");
 
-    canvas.width = 256;
-    canvas.height = 256;
+    canvas.width = 320;
+    canvas.height = 320;
 
     const ctx = canvas.getContext("2d");
 
 const size = 64;
 
-for(let y = 0; y < 3; y++){
+for(let y = 0; y < 10; y++){
 
-    for(let x = 0; x < 3; x++){
+    for(let x = 0; x < 10; x++){
 
         drawCharacter(
 
