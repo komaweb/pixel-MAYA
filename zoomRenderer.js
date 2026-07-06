@@ -1,0 +1,5 @@
+drawZoom(
+    mayaData,
+    centerX,
+    centerY
+)
