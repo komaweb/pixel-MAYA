@@ -49,7 +49,7 @@ for(let y = 0; y < 3; y++){
 
             size,
 
-            getHat(0),
+            getHat(x),
 
             getExpression(0)
 
