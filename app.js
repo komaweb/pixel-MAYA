@@ -1,3 +1,7 @@
+import {getHat, getExpression} from "./js/spriteLoader.js";
+
+import {drawCharacter} from "./js/renderer.js";
+
 import {loadSprites} from "./js/spriteLoader.js";
 
 import {waitImage} from "./js/upload.js";
@@ -21,6 +25,22 @@ async function main(){
 
     // HSV判定
     debugPixels(result.imageData);
+
+    const canvas = document.getElementById("resultCanvas");
+
+    canvas.width = 256;
+    canvas.height = 256;
+
+    const ctx = canvas.getContext("2d");
+
+    drawCharacter(
+        ctx,
+        64,
+        64,
+        128,
+        getHat(0),
+        getExpression(0)
+    );
 
 }
 
