@@ -1,42 +1,42 @@
-const expressions = [];
 const hats = [];
+const faces = [];
 
-async function loadImages(folder, count){
+async function loadImage(src){
 
-    const list = [];
+    const img = new Image();
 
-    for(let i=0;i<count;i++){
+    img.src = src;
 
-        const img = new Image();
+    await img.decode();
 
-        img.src = `assets/${folder}/${i}.png`;
-
-        await img.decode();
-
-        list.push(img);
-
-    }
-
-    return list;
+    return img;
 
 }
 
 export async function loadSprites(){
 
-    expressions.push(...await loadImages("expressions",10));
+    for(let i = 0; i < 10; i++){
 
-    hats.push(...await loadImages("hats",10));
+        hats.push(
+            await loadImage(`assets/${i}.png`)
+        );
 
-}
+        faces.push(
+            await loadImage(`assets/${i}F.png`)
+        );
 
-export function getExpression(index){
-
-    return expressions[index];
+    }
 
 }
 
 export function getHat(index){
 
     return hats[index];
+
+}
+
+export function getFace(index){
+
+    return faces[index];
 
 }
