@@ -64,6 +64,14 @@ async function main(){
 
 const hatIndex = getHatIndex(hsv.h);
 
+            if (!getHat(hatIndex)) {
+    console.error("帽子がありません", hatIndex);
+}
+
+if (!getExpression(expressionIndex)) {
+    console.error("表情がありません", expressionIndex);
+}
+
 const expressionIndex = getExpressionIndex(hsv.v);
 
             drawCharacter(
