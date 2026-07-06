@@ -26,6 +26,15 @@ async function main(){
     // HSV判定
     debugPixels(result.imageData);
 
+    const data = result.imageData.data;
+
+// 左上の1ピクセル
+const r = data[0];
+const g = data[1];
+const b = data[2];
+
+const pixelColor = `rgb(${r}, ${g}, ${b})`;
+
     const canvas = document.getElementById("resultCanvas");
 
     canvas.width = 320;
@@ -49,14 +58,13 @@ drawCharacter(
 
     size,
 
-    "#ff9999",
+    pixelColor,
 
     getHat(x),
 
     getExpression(y)
 
 );
-
     }
 
 }
