@@ -33,14 +33,31 @@ async function main(){
 
     const ctx = canvas.getContext("2d");
 
-    drawCharacter(
-        ctx,
-        64,
-        64,
-        128,
-        getHat(0),
-        getExpression(0)
-    );
+const size = 64;
+
+for(let y = 0; y < 3; y++){
+
+    for(let x = 0; x < 3; x++){
+
+        drawCharacter(
+
+            ctx,
+
+            x * size,
+
+            y * size,
+
+            size,
+
+            getHat(0),
+
+            getExpression(0)
+
+        );
+
+    }
+
+}
 
 }
 
