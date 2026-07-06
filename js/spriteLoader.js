@@ -1,19 +1,15 @@
 const hats = [];
 const expressions = [];
 
-async function loadImages(count, isFace = false){
+async function loadImages(count, suffix = "") {
 
     const list = [];
 
-    for(let i = 0; i < count; i++){
+    for (let i = 0; i < count; i++) {
 
         const img = new Image();
 
-        const fileName = isFace
-            ? `${i}F.png`
-            : `${i}.png`;
-
-        img.src = `assets/${fileName}`;
+        img.src = `assets/${i}${suffix}.png`;
 
         await img.decode();
 
@@ -25,25 +21,25 @@ async function loadImages(count, isFace = false){
 
 }
 
-export async function loadSprites(){
+export async function loadSprites() {
 
     // 被り物
-    hats.push(...await loadImages(10));
+    hats.push(...await loadImages(10, "H"));
 
     // 顔
-    expressions.push(...await loadImages(10, true));
+    expressions.push(...await loadImages(10, "F"));
 
     console.log("素材読み込み完了");
 
 }
 
-export function getHat(index){
+export function getHat(index) {
 
     return hats[index];
 
 }
 
-export function getExpression(index){
+export function getExpression(index) {
 
     return expressions[index];
 
