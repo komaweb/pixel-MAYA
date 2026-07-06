@@ -1,0 +1,24 @@
+body{
+
+margin:0;
+background:#fafafa;
+font-family:sans-serif;
+
+}
+
+.container{
+
+width:min(900px,95%);
+margin:auto;
+padding:30px;
+
+}
+
+canvas{
+
+width:100%;
+border:1px solid #ccc;
+margin-top:20px;
+image-rendering:pixelated;
+
+}
