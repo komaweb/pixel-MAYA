@@ -33,7 +33,7 @@ async function main(){
 
     const ctx = canvas.getContext("2d");
 
-const size = 64;
+const size = 32;
 
 for(let y = 0; y < 10; y++){
 
