@@ -1,6 +1,6 @@
 export const CONFIG={
 
-outputWidth:65,
-outputHeight:65
-
+outputWidth:55,
+outputHeight:55
+  
 };
