@@ -8,27 +8,20 @@ import {debugPixels} from "./js/utils.js";
 
 async function main(){
 
-    const image = await waitImage();
-
-    const result = createImageData(image);
-
-    debugPixels(result.imageData);
-
-}
-
-async function main(){
-
+    // マヤ素材を全部読み込む
     await loadSprites();
 
     console.log("素材読み込み完了");
 
+    // 画像を選ぶ
     const image = await waitImage();
 
+    // 100×100へ縮小
     const result = createImageData(image);
 
+    // HSV判定
     debugPixels(result.imageData);
 
 }
 
 main();
-
