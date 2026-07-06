@@ -39,21 +39,23 @@ for(let y = 0; y < 10; y++){
 
     for(let x = 0; x < 10; x++){
 
-        drawCharacter(
+drawCharacter(
 
-            ctx,
+    ctx,
 
-            x * size,
+    x * size,
 
-            y * size,
+    y * size,
 
-            size,
+    size,
 
-            getHat(x),
+    "#ff9999",
 
-            getExpression(y)
+    getHat(x),
 
-        );
+    getExpression(y)
+
+);
 
     }
 
