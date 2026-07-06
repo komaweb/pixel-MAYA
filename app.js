@@ -14,6 +14,13 @@ import { createImageData } from "./js/imageLoader.js";
 
 import { debugPixels } from "./js/utils.js";
 
+import { rgbToHsv } from "./js/hsv.js";
+
+import {
+    getHatIndex,
+    getExpressionIndex
+} from "./js/converter.js";
+
 async function main(){
 
     // マヤ素材を読み込む
@@ -53,6 +60,12 @@ async function main(){
 
             const color = `rgb(${r}, ${g}, ${b})`;
 
+            const hsv = rgbToHsv(r, g, b);
+
+const hatIndex = getHatIndex(hsv.h);
+
+const expressionIndex = getExpressionIndex(hsv.v);
+
             drawCharacter(
 
                 ctx,
@@ -65,10 +78,11 @@ async function main(){
 
                 color,
 
-                // 今はデバッグ用
-                getHat(x % 10),
+const hsv = rgbToHsv(r, g, b);
 
-                getExpression(y % 10)
+const hatIndex = getHatIndex(hsv.h);
+
+const expressionIndex = getExpressionIndex(hsv.v);
 
             );
 
