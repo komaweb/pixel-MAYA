@@ -16,4 +16,18 @@ async function main(){
 
 }
 
+async function main(){
+
+    await loadSprites();
+
+    console.log("素材読み込み完了");
+
+    const image = await waitImage();
+
+    const result = createImageData(image);
+
+    debugPixels(result.imageData);
+
+}
+
 main();
